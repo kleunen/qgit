@@ -4,10 +4,9 @@ PREREQUISITES
 
 - You need msysgit (http://code.google.com/p/msysgit/) correctly installed
 
+- Or you need git from cygwin (www.cygwin.org)
 
 NOTES
-
-- This version has NOT been tested with cygwin version of git
 
 - In case qgit has problem to find correct msysgit files you should
   add mysysgit\bin directory to your PATH before to start qgit.

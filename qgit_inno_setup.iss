@@ -7,7 +7,7 @@
 
 [Setup]
 AppName=QGit
-AppVerName=QGit version 2.3
+AppVerName=QGit version 2.3.1
 DefaultDirName={pf}\QGit
 DefaultGroupName=QGit
 UninstallDisplayIcon={app}\qgit.exe
@@ -16,16 +16,16 @@ SolidCompression=yes
 LicenseFile=COPYING.rtf
 SetupIconFile=src\resources\qgit.ico
 OutputDir=bin
-OutputBaseFilename=qgit-2.3_win
+OutputBaseFilename=qgit-2.3.1_win
 
 [Files]
 Source: "bin\qgit.exe"; DestDir: "{app}"
-Source: "bin\qgit.exe.manifest"; DestDir: "{app}"
+Source: "bin\vcredist_x86.exe"; DestDir: "{app}"
 Source: "README_WIN.txt"; DestDir: "{app}"; Flags: isreadme
 
 ; Directory of MSVC redistributable files must be copied under 'bin\'
 ; before to run Inno Setup compiler or following line will error out
-Source: "bin\Microsoft.VC90.CRT\*"; DestDir: "{app}\Microsoft.VC90.CRT"
+; Source: "bin\Microsoft.VC90.CRT\*"; DestDir: "{app}\Microsoft.VC90.CRT"
 
 [Tasks]
 Name: desktopicon; Description: "Create a &desktop icon";
@@ -106,3 +106,6 @@ function GetMSysGitExecDir(Param: String): String;
 begin
   Result := MSysGitDirPage.Values[0] + '\bin'; // already validated
 end;
+
+[Run]
+Filename: {app}\vcredist_x86.exe; Parameters: "/q /norestart"; WorkingDir: {app}; StatusMsg: Installing CRT...

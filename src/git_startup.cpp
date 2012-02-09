@@ -44,7 +44,7 @@ const QString Git::getLocalDate(SCRef gitDate) {
 
 const QStringList Git::getArgs(bool* quit, bool repoChanged) {
 
-	QString args;
+	QString args = "--all";
 	if (startup) {
 		for (int i = 1; i < qApp->argc(); i++) {
 			// in arguments with spaces double quotes
